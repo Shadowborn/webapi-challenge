@@ -18,4 +18,17 @@ router.get('/', async (req, res) => {
       }
 });
 
+router.post('/:id/actions', async (req, res) => {
+    try {
+        const actions = await Actions.insert(req.body);
+        res.status(201).json(actions);
+      } catch (error) {
+        // log error to database
+        console.log(error);
+        res.status(500).json({
+          message: 'Error adding the post',
+        });
+      }
+});
+
 module.exports = router;
