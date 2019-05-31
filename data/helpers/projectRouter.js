@@ -2,7 +2,7 @@ const express = 'express';
 const router = require('express').Router();
 // const router = express.Router();
 const Projects = require('./projectModel'); // <<<<< updated path
-// const Posts = require('../posts/postDb');
+const Actions = require('./actionModel');
 
 
 
@@ -27,24 +27,10 @@ router.post('/', async (req, res) => {
       }
 });
 
-// router.get('/', async (req, res) => {
-//     try {
-//         console.log("get request")
-//         const projects = await Projects.get(req.query.id);
-//         res.status(200).json(projects);
-//       } catch (error) {
-//         // log error to database
-//         console.log(error);
-//         res.status(500).json({
-//           message: 'Error retrieving the projects',
-//         });
-//       }
-// });
-
 router.get('/', async (req, res) => {
     try {
         console.log("get request")
-        const projects = await Projects.getProjectActions(req.query.projectId);
+        const projects = await Projects.get(req.query.id);
         res.status(200).json(projects);
       } catch (error) {
         // log error to database
@@ -54,6 +40,8 @@ router.get('/', async (req, res) => {
         });
       }
 });
+
+
 
 // router.get('/:id/posts', validateUserId, validatePost, async (req, res) => {
 //     try{

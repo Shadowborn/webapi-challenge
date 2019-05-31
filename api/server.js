@@ -6,6 +6,7 @@ const db = require('../data/dbConfig');
 // const userRouter = require('./users/userRouter.js');
 const projectRouter = require('../data/helpers/projectRouter.js');
 const actionRouter = require('../data/helpers/actionRouter.js');
+const combinedRouter = require('../data/helpers/combinedRouter.js');
 
 const server = express();
 
@@ -13,6 +14,7 @@ const server = express();
 server.use(express.json());
 server.use('/projects', projectRouter);
 server.use('/actions', actionRouter);
+server.use('/project-actions', combinedRouter);
 
 server.get('/', (req, res) => {
     res.send(`<h2>Let's write some middleware!</h2>`)
