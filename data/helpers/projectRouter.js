@@ -14,7 +14,7 @@ function validateBody(req, res, next) {
     }
 }
 
-router.post('/:id', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const projects = await Projects.insert(req.body);
         res.status(201).json(projects);

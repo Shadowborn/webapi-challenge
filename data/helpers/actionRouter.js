@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
       }
 });
 
-router.post('/:id/actions', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const actions = await Actions.insert(req.body);
         res.status(201).json(actions);
