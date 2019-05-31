@@ -26,13 +26,28 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+    Express gives us more HTTP methods and middleware helping us to create API's quicker and with less of a hassle.
+
 - [ ] Describe Middleware?
+
+    Middleware is often code you need but don't know where to put. So creating middleware allows us to execute any code as well as make changes to the "Homies" or "the request and response objects. req/res"
 
 - [ ] Describe a Resource?
 
+    With RESTful API's EVERYTHING is a resource. You can access resources with unique URI's, and management of resources is done through HTTP methods.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+    200 status code's indicate a successful request. Helping the client to recognize when an action was successful.
+
 - [ ] How can we partition our application into sub-applications?
+
+    Using express. We can separate our applications into different endpoints. For example =
+
+        const server = express();
+        server.use(express.json());
+        server.use('/projects', projectRouter);
+        server.use('/actions', actionRouter);
 
 ## Project Setup
 

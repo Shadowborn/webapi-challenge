@@ -27,10 +27,24 @@ router.post('/', async (req, res) => {
       }
 });
 
+// router.get('/', async (req, res) => {
+//     try {
+//         console.log("get request")
+//         const projects = await Projects.get(req.query.id);
+//         res.status(200).json(projects);
+//       } catch (error) {
+//         // log error to database
+//         console.log(error);
+//         res.status(500).json({
+//           message: 'Error retrieving the projects',
+//         });
+//       }
+// });
+
 router.get('/', async (req, res) => {
     try {
         console.log("get request")
-        const projects = await Projects.get(req.query.id);
+        const projects = await Projects.getProjectActions(req.query.projectId);
         res.status(200).json(projects);
       } catch (error) {
         // log error to database
@@ -40,23 +54,6 @@ router.get('/', async (req, res) => {
         });
       }
 });
-
-// router.get('/:id', async (req, res) => {
-//     try {
-//         console.log("get by id request")
-//         const projects = await Projects.getById(req.params.id);
-//         if (projects) {
-//             res.status(200).json(projects);
-//           } else {
-//             res.status(404).json({ message: 'User not found' });
-//           }
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).json({
-//             message: 'Error retrieving users by id'
-//         })
-//     }
-// });
 
 // router.get('/:id/posts', validateUserId, validatePost, async (req, res) => {
 //     try{
