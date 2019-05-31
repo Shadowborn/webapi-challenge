@@ -77,20 +77,20 @@ router.get('/', async (req, res) => {
 //     }
 // });
 
-// router.delete('/:id', validateUserId, async (req, res) => {
-//     try {
-//         const id = await Users.remove(req.params.id);
-//         res.status(200).json({
-//             url: `/users/${req.params.id}`,
-//             operation: `DELETE for hobbit with id ${req.params.id}`
-//         });
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).json({
-//             message: 'Error, cannot delete'
-//         })
-//     }
-// });
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = await Projects.remove(req.params.id);
+        res.status(200).json({
+            url: `/projects/${req.params.id}`,
+            operation: `DELETE for project with id ${req.params.id}`
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Error, cannot delete'
+        })
+    }
+});
 
 // router.put('/:id', validateUserId, async (req, res) => {
 //     const user = Users.find(h => h.id == req.params.id);
