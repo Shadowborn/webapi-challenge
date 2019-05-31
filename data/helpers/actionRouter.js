@@ -26,22 +26,22 @@ router.post('/', async (req, res) => {
         // log error to database
         console.log(error);
         res.status(500).json({
-          message: 'Error adding the post',
+          message: 'Error adding the action',
         });
       }
 });
 
 router.put('/:id', async (req, res) => {
     try {
-        const post = await Posts.update(req.params.id, req.body);
-        if (post) {
-              res.status(200).json(post);
+        const action = await Actions.update(req.params.id, req.body);
+        if (action) {
+              res.status(200).json(action);
         } else {
-              res.status(404).json({ message: 'That post could not be found' });
+              res.status(404).json({ message: 'That Action could not be found' });
         }
     } catch (err) {
         console.log(err);
-        res.status(500).json({ message: 'Error updating the post' });
+        res.status(500).json({ message: 'Error updating the Action' });
   }
 });
 
